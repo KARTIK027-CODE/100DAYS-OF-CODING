@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+struct Coin {
+    int value;
+    int count;
+};
+
+
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    int val;
+    struct Coin coins[n]; // At most n unique coins
+    int unique = 0;
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &val);
+
+        // Check if this value already exists
+        int found = 0;
+        for (int j = 0; j < unique; j++) {
+            if (coins[j].value == val) {
+                coins[j].count++;
+                found = 1;
+                break;
+            }
+        }
+
+        // If not found, add to the coins array
+        if (!found) {
+            coins[unique].value = val;
+            coins[unique].count = 1;
+            unique++;
+        }
+    }
+
+
+
+    // Print result
+    for (int i = 0; i < unique; i++) {
+        printf("%d-%d\n", coins[i].value, coins[i].count);
+    }
+
+    return 0;
+}
