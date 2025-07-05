@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    
+    double root = sqrt(n);
+
+ 
+    int intRoot = (int)root;
+
+   
+    if (intRoot * intRoot == n)
+        printf("%d",intRoot);
+    else
+        printf("The number %d is not a perfect square. The integer square root is: %d\n", n, intRoot);
+
+    return 0;
+}
